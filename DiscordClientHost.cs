@@ -104,7 +104,7 @@ internal sealed class DiscordClientHost(DiscordShardedClient client, CommandServ
         DbUser user = await MongoManager.FetchUserAsync(context.User.Id, context.Guild.Id);
         if (userMsg.HasStringPrefix(Constants.Prefix, ref argPos))
         {
-            SearchResult search = commands.Search(msg.Content[argPos..]);
+            Discord.Commands.SearchResult search = commands.Search(msg.Content[argPos..]);
             if (search.Error == CommandError.UnknownCommand)
                 return;
             

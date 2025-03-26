@@ -33,7 +33,7 @@ public class General : ModuleBase<SocketCommandContext>
             return CommandResult.FromSuccess();
         }
 
-        SearchResult search = Commands.Search(command);
+        Discord.Commands.SearchResult search = Commands.Search(command);
         if (!search.IsSuccess)
             return CommandResult.FromError("You have specified a nonexistent command!");
 
@@ -117,7 +117,7 @@ public class General : ModuleBase<SocketCommandContext>
         EmbedBuilder modulesEmbed = new EmbedBuilder()
             .WithColor(Color.Red)
             .WithTitle("Modules")
-            .WithDescription(string.Join(", ", Commands.Modules.Select(x => x.Name).ToList()))
+            .WithDescription(string.Join(", ", Commands.Modules.Select(x => x.Name).Except(["RushAcademy"]).ToList()))
             .WithFooter("Use $module to learn more about a specific module.");
         await ReplyAsync(embed: modulesEmbed.Build());
     }

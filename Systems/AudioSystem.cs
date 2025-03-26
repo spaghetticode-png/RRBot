@@ -1,4 +1,5 @@
 ﻿
+
 namespace RRBot.Systems;
 public sealed class AudioSystem(IAudioService audioService, ILyricsService lyricsService)
 {
@@ -261,6 +262,10 @@ public sealed class AudioSystem(IAudioService audioService, ILyricsService lyric
                 "music.youtube.com" => TrackSearchMode.YouTubeMusic,
                 "soundcloud.com" or "snd.sc" => TrackSearchMode.SoundCloud,
                 "youtube.com" or "youtu.be" => TrackSearchMode.YouTube,
+                "deezer.com" => TrackSearchMode.Deezer,
+                "music.apple.com" => TrackSearchMode.AppleMusic,
+                "spotify.com" => TrackSearchMode.Spotify,
+                "music.yandex.com" or "music.yandex.ru" => TrackSearchMode.YandexMusic,
                 _ => TrackSearchMode.None
             };
 
@@ -282,7 +287,11 @@ public sealed class AudioSystem(IAudioService audioService, ILyricsService lyric
         }
         else
         {
-            track = await audioService.SearchYtTrackAsync(query, context.Guild, context.User);
+            Lavalink4NET.Integrations.Lavasearch.SearchResult? searchResult =
+                await audioService.Tracks.SearchAsync(query, ImmutableArray.Create(SearchCategory.Track));
+            track = searchResult is not null
+                ? new RrTrack(searchResult.Tracks[0], context.User)
+                : await audioService.SearchYtTrackAsync(query, context.Guild, context.User);
         }
         
         if (track is null)

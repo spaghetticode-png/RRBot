@@ -11,6 +11,8 @@ global using Lavalink4NET.Clients;
 global using Lavalink4NET.Extensions;
 global using Lavalink4NET.Filters;
 global using Lavalink4NET.InactivityTracking.Extensions;
+global using Lavalink4NET.Integrations.Lavasearch;
+global using Lavalink4NET.Integrations.Lavasearch.Extensions;
 global using Lavalink4NET.Lyrics;
 global using Lavalink4NET.Lyrics.Extensions;
 global using Lavalink4NET.Players;

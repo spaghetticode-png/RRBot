@@ -98,11 +98,6 @@ public static class AudioServiceExt
     public static async Task<RrTrack?> SearchYtTrackAsync(this IAudioService service, string query,
         SocketGuild guild, IUser requester)
     {
-        LavalinkTrack? lavalinkTrack = await service.Tracks.LoadTrackAsync(query, TrackSearchMode.YouTube);
-        if (lavalinkTrack is not null)
-            return new RrTrack(lavalinkTrack, requester);
-        
-        Console.WriteLine($"Lavalink YouTube search failed for query \"{query}\" - making manual search request");
         string videoId = await GetFirstSearchResultIdAsync(query);
         if (videoId is null)
             return null;
