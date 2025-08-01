@@ -1,11 +1,13 @@
-<a href="https://github.com/BowDown097/RRBot">
+# This bot has been retired as of 7/11/2025. It is no longer running and will no longer receive updates. It's been a fun ride.
+
+<a href="https://github.com/spaghetticode-png/RRBot">
 	<img src="https://i.imgur.com/qAz3zEk.png" />
 </a>
 <p align="center">
     <a href="https://discord.gg/USpJnaaNap" alt="Discord">
         <img src="https://img.shields.io/discord/809485099238031420" />
     </a>
-    <img src="https://img.shields.io/codefactor/grade/github/BowDown097/RRBot" />
+    <img src="https://img.shields.io/codefactor/grade/github/spaghetticode-png/RRBot" />
 </p>
 <p align="center">The bot for the <a href="https://discord.gg/USpJnaaNap">Rush Reborn Discord server</a>, heavily inspired by the <a href="https://github.com/Asshley/DEA">DEA Discord bot</a>.</p>
 <p align="center">
